@@ -1,0 +1,22 @@
+{
+  "name": "tms_emails",
+  "version": "1.0.0",
+  "description": "Email service for LIS notifications",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon -L server.js"
+  },
+  "author": "Jakub Kłosowski",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.1",
+    "nodemailer": "^6.9.16",
+    "snowflake-sdk": "^1.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
