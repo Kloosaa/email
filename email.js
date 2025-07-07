@@ -1,14 +1,21 @@
 const nodemailer = require('nodemailer');
-require('dotenv').config();
 
 // Create a transporter using SMTP
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.alv.autoliv.int',
+    port: 587,
+    secure: false,
     auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS
-    }
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
+    },
+    tls: {
+        rejectUnauthorized: false
+    },
+    logger: true,
+    debug: true
 });
+
 
 /**
  * Sends an email using the configured transporter
@@ -23,7 +30,7 @@ const sendEmail = async ({ to, subject, text }) => {
     }
 
     return await transporter.sendMail({
-        from: { name: 'Jakub Klosowski', address: process.env.GMAIL_USER },
+        from: { name: 'Jakub Klosowski', address: 'jakub.klosowski@autoliv.com' },
         to,
         subject,
         text
